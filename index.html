@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="ja">
   <head>
-    <title>メモ</title>
+    <title>自主休講あぷーり</title>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="css/afui.custom.css">
     <link rel="stylesheet" type="text/css" href="css/icons.css">
@@ -12,9 +12,29 @@
       <div id="header" class="header">
       </div>
       <div id="content">
-        <div id="home" data-title="メモ" class="panel">
-          <ul id="memo-list" class="list">
-          </ul>
+        <div id="home" data-title="自主休講あぷーり" class="panel">
+          キャンパス
+          <form>
+            <select>
+              <option>SFC</option>
+              <option>日吉・矢上</option>
+              <option>三田</option>
+              <option>信濃町</option>
+              <option>芝共立</option>
+            </select>
+          </form>
+          本日の意識
+          <form>
+            <select>
+              <option>とても高い</option>
+              <option>高い</option>
+              <option>やや高い</option>
+              <option>並</option>
+              <option>やや低い</option>
+              <option>低い</option>
+              <option>とても低い</option>
+            </select>
+          </form>
         </div>
       </div>
       <div id="create" data-title="追加" class="panel">
@@ -30,8 +50,9 @@
         </form>
       </div>
       <div id="navbar">
-        <a href="#home" class="icon home">一覧</a>
-        <a href="#create" class="icon add">追加</a>
+        <a href="#home" class="icon home">ホーム</a>
+        <a href="#create" class="icon calendar">週間予報</a>
+        <a href="#create" class="icon chat">ツイートする</a>
       </div>
     </div>
     <script src="js/appframework.ui.min.js"></script>    
