@@ -1,7 +1,3 @@
-var kyuko = {
-	message: ""
-};
-
 var calcKyuko = function(){
 		return "本日の自主休講確率は" + calcKyukoPerc + "%です"; 
 };
@@ -38,15 +34,30 @@ var Geocode = function(){
 };
 
 var estimateCurrentLocation = function(){
-	var message = "俺はもうダメだ";
-    kyuko.output.textContent = testing;
+	var output = document.getElementById("kyukoperc");
+
+	if(!navigator.geolocation){
+		return;
+	}
+
+	var success = function(position){
+		var latitude = position.coords.latitude;
+		var longitude = position.coords.longitude;
+
+		output.innerHTML = "Latitude is" + latitude + "<br>longitude is" + longitude;
+	};
+
+	var error = function(){
+		return;
+	};
+	
+	navigator.geolocation.getCurrentPosition(success, error);
 };
 
 //initApp
 var initApp = function(){
-		kyuko.output = document.querySelector("#kyukoperc");
-
 		var startButton = document.querySelector("#start");
 		startButton.addEventlistener("click", estimateCurrentLocation);
 };
-initApp;
+
+initApp();
