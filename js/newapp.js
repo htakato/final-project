@@ -1,6 +1,6 @@
 var kyuko = {
-		
-}
+	message: ""
+};
 
 var calcKyuko = function(){
 		return "本日の自主休講確率は" + calcKyukoPerc + "%です"; 
@@ -30,38 +30,23 @@ var startCalc = function(){
 
 //Geolocation関連
 var showGeolocationError = function(){
+	 kyuko.output.textContent = orehamoudameda;
 };
 
-var showCurrentPosition = function(response){
-  console.log(response);
-  if(response.status == "OK"){
-    memoInputElements.place.value = response.results[0].formatted_address;
-  }
-};
-
-var buildInvertGeocodingQuery = function(position){
-  var latlng = position.coords.latitude + "," + position.coords.longitude;
-  return ENDPOINT + "?sensor=true&latlng=" + latlng;
-};
-
-var invertGeocode = function(position){
-  console.log(position);
-  var query = buildInvertGeocodingQuery(position);
-  console.log("send invert geocoding query as "  + query);
-  $.getJSON(query, showCurrentPosition);
+var Geocode = function(){
+  kyuko.output.textContent = position.coords.latitude + "," + position.coords.longitude;
 };
 
 var estimateCurrentLocation = function(){
-  navigator.geolocation.getCurrentPosition(invertGeocode, showGeolocationError);
+	var message = "俺はもうダメだ";
+    kyuko.output.textContent = testing;
 };
 
 //initApp
 var initApp = function(){
-		kyuko.ishiki = document.querySelector("#ishiki");
-		kyuko.campus = document.querySelector("#campus");
 		kyuko.output = document.querySelector("#kyukoperc");
 
 		var startButton = document.querySelector("#start");
-		startButton.addEventlistener("click", calcWeather);
-}
+		startButton.addEventlistener("click", estimateCurrentLocation);
+};
 initApp;
