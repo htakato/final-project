@@ -6,6 +6,26 @@
     <link rel="stylesheet" type="text/css" href="css/afui.custom.css">
     <link rel="stylesheet" type="text/css" href="css/icons.css">
     <link rel="stylesheet" type="text/css" href="css/app.css">
+    <!--ここから天気のAPIを呼び出します -->
+    <script>
+    function getWeatherData(latitude, longitude){
+        var main = 0;
+
+        var url = "http://api.openweathermap.org/data/2.5/weather?lat=";
+        url = url + latitude;
+        url = url + "&lon=";
+        url = url + longitude;
+
+        $.ajax({
+            dataType: "json",
+            url: url,
+            data: data,
+            success: function(data){
+                weather = data.list[0].weather.main;
+            },
+        });
+    }
+    </script>
   </head>
   <body>
     <div id="afui" class="ios7">

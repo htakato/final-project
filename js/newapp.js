@@ -23,15 +23,29 @@ var calcWeather = function(){
 var startCalc = function(){
 
 };
+//Weather API関連
+var getWeatherData = function(){
+        var weather = 0;
+        var out = document.getElementById("weather");
 
+        var url = "http://api.openweathermap.org/data/2.5/weather?q=london";
+
+
+        $.ajax({
+            dataType: "json",
+            url: url,
+            data: data,
+            success: function(data){
+                weather = data.list[0].weather.main;
+            },
+            error: function(errordata){
+            	return;
+            }
+        });
+
+		out.innerHTML = weather;        
+    };
 //Geolocation関連
-var showGeolocationError = function(){
-	 kyuko.output.textContent = orehamoudameda;
-};
-
-var Geocode = function(){
-  kyuko.output.textContent = position.coords.latitude + "," + position.coords.longitude;
-};
 
 var estimateCurrentLocation = function(){
 	var output = document.getElementById("kyukoperc");
@@ -43,21 +57,20 @@ var estimateCurrentLocation = function(){
 	var success = function(position){
 		var latitude = position.coords.latitude;
 		var longitude = position.coords.longitude;
-
-		output.innerHTML = "Latitude is" + latitude + "<br>longitude is" + longitude;
+		var currentlocation = latitude + "" + longitude;
 	};
 
 	var error = function(){
 		return;
 	};
-	
+
 	navigator.geolocation.getCurrentPosition(success, error);
 };
 
 //initApp
-var initApp = function(){
-		var startButton = document.querySelector("#start");
-		startButton.addEventlistener("click", estimateCurrentLocation);
-};
+//var initApp = function(){
+//		var startButton = document.querySelector("#start");
+//		startButton.addEventlistener("click", getWeatherData);
+//};
 
-initApp();
+//initApp();
