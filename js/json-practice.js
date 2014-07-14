@@ -17,25 +17,24 @@ function createXMLHttpRequest() {
 }
 
 var estimateCurrentLocation = function(){
-	navigator.geolocation.getCurrentPosition(sendget, geolocationError);
+	navigator.geolocation.getCurrentPosition(loadWeatherData, geolocationError);
 };
 
 var geolocationError = function(){
 	return;
 };
 
-var sendget = function(pos) {
+var loadWeatherData = function(pos) {
  	var url = "http://api.openweathermap.org/data/2.5/weather?lat=" + pos.coords.latitude + "&lon=" + pos.coords.longitude;
 
  	var request = createXMLHttpRequest();
  	request.open("GET", url, true);
  	request.onreadystatechange = function(){
  		if(request.readyState == 4 && request.status == 200){
- 			var result = document.getElementById("output");
- 			var text = document.createTextNode(decodeURI(request.responseText));
- 			var json = JSON.parse(text);
+ 			var data = request.responseText
+ 			var WeatherData = JSON.parse(data);
 
- 			
+ 			document.getElementById("output").innerHTML = WeatherData.weather[0].main + ", " + WeatherData.weather[];
  		}
  	}
  	request.send("");
