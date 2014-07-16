@@ -8,23 +8,6 @@
     <link rel="stylesheet" type="text/css" href="css/app.css">
     <!--ここから天気のAPIを呼び出します -->
     <script>
-    function getWeatherData(latitude, longitude){
-        var main = 0;
-
-        var url = "http://api.openweathermap.org/data/2.5/weather?lat=";
-        url = url + latitude;
-        url = url + "&lon=";
-        url = url + longitude;
-
-        $.ajax({
-            dataType: "json",
-            url: url,
-            data: data,
-            success: function(data){
-                weather = data.list[0].weather.main;
-            },
-        });
-    }
     </script>
   </head>
   <body>
@@ -55,7 +38,9 @@
               <option value="60">とても低い</option>
             </select>
           </form>
-          <a class="button block" id="start">GO!</a>
+          <a class="button block" onclick="initapp();">GO!</a>
+          <div id="output"></div>
+          <div id="output2"></div>
         </div>
       </div>
       <div id="create" data-title="追加" class="panel">

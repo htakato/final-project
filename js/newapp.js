@@ -23,54 +23,90 @@ var calcWeather = function(){
 var startCalc = function(){
 
 };
-//Weather API関連
-var getWeatherData = function(){
-        var weather = 0;
-        var out = document.getElementById("weather");
+//ここからWeather API関連
 
-        var url = "http://api.openweathermap.org/data/2.5/weather?q=london";
-
-
-        $.ajax({
-            dataType: "json",
-            url: url,
-            data: data,
-            success: function(data){
-                weather = data.list[0].weather.main;
-            },
-            error: function(errordata){
-            	return;
-            }
-        });
-
-		out.innerHTML = weather;        
-    };
-//Geolocation関連
+function createXMLHttpRequest() {
+	if(window.createXMLHttpRequest){
+		return new XMLHttpRequest()
+	} else if (window.ActiveXObject){
+		try{
+			return new ActiveXObject("Msxml2.XMLHTTP")
+		} catch(e2){
+			try{
+				new ActiveXObject("Microsoft.XMLHTTP")
+			}catch(e2){
+				return null
+			}
+		}
+	} else {
+		return null
+	}
+}
 
 var estimateCurrentLocation = function(){
-	var output = document.getElementById("kyukoperc");
-
-	if(!navigator.geolocation){
-		return;
-	}
-
-	var success = function(position){
-		var latitude = position.coords.latitude;
-		var longitude = position.coords.longitude;
-		var currentlocation = latitude + "" + longitude;
-	};
-
-	var error = function(){
-		return;
-	};
-
-	navigator.geolocation.getCurrentPosition(success, error);
+	navigator.geolocation.getCurrentPosition(loadWeatherData, geolocationError);
 };
 
-//initApp
-//var initApp = function(){
-//		var startButton = document.querySelector("#start");
-//		startButton.addEventlistener("click", getWeatherData);
-//};
+var geolocationError = function(){
+	return;
+};
 
-//initApp();
+//現在地の天気を取得
+var loadWeatherData = function(pos) {
+ 	var url = "http://api.openweathermap.org/data/2.5/weather?lat=" + pos.coords.latitude + "&lon=" + pos.coords.longitude;
+
+ 	var request = createXMLHttpRequest();
+ 	request.open("GET", url, true);
+ 	request.onreadystatechange = function(){
+ 		if(request.readyState == 4 && request.status == 200){
+ 			var data = request.responseText
+ 			var campus = document.querySelector("#campus");
+ 			var WeatherData = JSON.parse(data);
+
+ 			document.getElementById("output").innerHTML = WeatherData.weather[0].main;
+ 		}
+ 	}
+ 	request.send("");
+ }
+
+var CampusSelection = function(){
+	var campus = document.querySelector("#campus");
+	
+	if(campus = "sfc"){
+		loadCampusWeatherData(35.388167, 139.427378);
+	}
+	if(campus = "mita"){
+
+	}
+	if(campus = "hiyoshiyagami"){
+
+	}
+	if(campus = "shinanomachi"){
+
+	}
+	if(campus = "shiba"){
+
+	}
+}
+
+//キャンパスの天気
+function loadCampusWeatherData(lat, lon){
+	var request = createXMLHttpRequest();
+ 	var url = "http://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon;
+
+	request.open("GET", url, true);
+	request.onreadystatechange = function(){
+		if(request.readyState == 4 && request.status == 200){
+			var data = request.responseText
+			var WeatherData = JSON.parse(data);
+
+			document.getElementById("output2").innerHTML = WeatherData.weather[0].main;
+		}
+	}
+ 	request.send("");
+};
+
+var initapp = function(){
+	estimateCurrentLocation();
+	CampusSelection();
+}
