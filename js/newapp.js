@@ -1,28 +1,6 @@
-var calcKyuko = function(){
-		return "本日の自主休講確率は" + calcKyukoPerc + "%です"; 
-};
+ var ishiki = document.querySelector("#ishiki");
+ var campus = document.querySelector("#campus");
 
-var calcKyukoPerc = function(){
-		return math.floor(calcWeather.value + kyuko.ishiki.value);
-};
-
-var calcWeather = function(){
-		if(kyuko.campus = "sfc"){
-				return weather.currentloc.value + weather.shonandai.value + weather.sfc.value; 
-		}else if(kyuko.campus = "hiyoshiyagami"){
-				return weather.currentloc.value + weather.hiyoshiyagami.value;
-		}else if(kyuko.campus = "mita"){
-				return weather.currentloc.value + weather.mita.value;
-		}else if(kyuko.campus = "shinanomachi"){
-				return weather.currentloc.value + weather.shinanomachi.value;
-		}else if(kyuko.campus = "shiba"){
-				return weather.currentloc.value + weather.shiba.value;
-		}
-};
-
-var startCalc = function(){
-
-};
 //ここからWeather API関連
 
 function createXMLHttpRequest() {
@@ -43,70 +21,109 @@ function createXMLHttpRequest() {
 	}
 }
 
-var estimateCurrentLocation = function(){
-	navigator.geolocation.getCurrentPosition(loadWeatherData, geolocationError);
-};
-
 var geolocationError = function(){
 	return;
 };
-
+var test = function(){
+	document.getElementById("output").innerHTML = hoge();
+}
 //現在地の天気を取得
-var loadWeatherData = function(pos) {
- 	var url = "http://api.openweathermap.org/data/2.5/weather?lat=" + pos.coords.latitude + "&lon=" + pos.coords.longitude;
+var loadWeatherData = function() {
+ 	var url = "http://api.openweathermap.org/data/2.5/weather?lat=35&lon=150";
 
  	var request = createXMLHttpRequest();
  	request.open("GET", url, true);
  	request.onreadystatechange = function(){
  		if(request.readyState == 4 && request.status == 200){
- 			var data = request.responseText
- 			var campus = document.querySelector("#campus");
+ 			var data = request.responseText;
  			var WeatherData = JSON.parse(data);
 
- 			document.getElementById("output").innerHTML = WeatherData.weather[0].main;
+			CampusSelect(WeatherData.weather[0].id);
  		}
- 	}
+ 	}	
  	request.send("");
- }
+};
 
-var CampusSelection = function(){
-	var campus = document.querySelector("#campus");
-	
+//キャンパスを選択
+var CampusSelect = function(currentlocdata){
+	var currentlocdata = currentlocdata;
+
 	if(campus = "sfc"){
-		loadCampusWeatherData(35.388167, 139.427378);
-	}
-	if(campus = "mita"){
-
+		var coordend = "35.388232&lon=139.427780";
+		cloadWeatherData(currentlocdata, coordend);
 	}
 	if(campus = "hiyoshiyagami"){
-
+		var coordend = "35.388232&lon=139.427780";
+		cloadWeatherData(currentlocdata, coordend);
+	}
+	if(campus = "mita"){
+		var coordend = "35.388232&lon=139.427780";
+		cloadWeatherData(currentlocdata, coordend);
 	}
 	if(campus = "shinanomachi"){
-
+		var coordend = "35.388232&lon=139.427780";
+		cloadWeatherData(currentlocdata, coordend);
 	}
 	if(campus = "shiba"){
+		var coordend = "35.388232&lon=139.427780";
+		cloadWeatherData(currentlocdata, coordend);
+	}
+};
 
+//キャンパスの天気の模様を点数に変換する関数
+var calcCampusPoints = function(campusdata, currentlocdata){
+	if(campusdata => 800 && campusdata <= 804){
+		calcKyuko(0, currentlocdata);
+	}
+	if(campusdata = 302 || campusdata = 311){
+		calcKyuko(5, currentlocdata);
+	}
+	if(campusdata >= 950 && campusdata <= 955){
+		calcKyuko(5, currentlocdata);
+	}
+	if(campusdata = 200 || campusdata = 210 || campusdata = 230){
+		calcKyuko(10, currentlocdata);
+	}
+	if(campusdata = 302 || campusdata = 500 || campusdata = 501 || campusdata = 520){
+		calcKyuko(15, currentlocdata);
+	}
+	if(campusdata >=312 && 321){
+		calcKyuko(20, currentlocdata);
+	}	
+	if(campusdata >=600 && 622){
+		calcKyuko(20, currentlocdata);
+	}
+	if(campusdata = 711 || campusdata = 731){
+		calcKyuko(20, currentlocdata);
+	}
+	if(campusdata >= 751 && 781){
+		calcKyuko(20, currentlocdata);
+	}
+	if(campusdata >=900 && 906){
+		calcKyuko(20, currentlocdata);
+	}
+	if(campusdata >=956 && 962){
+		calcKyuko(20, currentlocdata);
 	}
 }
 
 //キャンパスの天気
-function loadCampusWeatherData(lat, lon){
-	var request = createXMLHttpRequest();
- 	var url = "http://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon;
+var cloadWeatherData = function(currentlocdata, coordend) {
+ 	var url = "http://api.openweathermap.org/data/2.5/weather?lat=" + coordend;
 
-	request.open("GET", url, true);
-	request.onreadystatechange = function(){
-		if(request.readyState == 4 && request.status == 200){
-			var data = request.responseText
-			var WeatherData = JSON.parse(data);
+ 	var request = createXMLHttpRequest();
+ 	request.open("GET", url, true);
+ 	request.onreadystatechange = function(){
+ 		if(request.readyState == 4 && request.status == 200){
+ 			var data = request.responseText;
+ 			var WeatherData = JSON.parse(data);
 
-			document.getElementById("output2").innerHTML = WeatherData.weather[0].main;
-		}
-	}
+			calcCampusPoints(WeatherData.weather[0].id, currentlocdata);
+ 		}
+ 	}	
  	request.send("");
 };
 
-var initapp = function(){
-	estimateCurrentLocation();
-	CampusSelection();
-}
+function initApp(){
+		navigator.geolocation.getCurrentPosition(loadWeatherData, geolocationError);
+};

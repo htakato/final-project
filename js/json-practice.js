@@ -25,7 +25,7 @@ var geolocationError = function(){
 };
 
 var loadWeatherData = function(pos) {
- 	var url = "http://api.openweathermap.org/data/2.5/weather?lat=" + pos.coords.latitude + "&lon=" + pos.coords.longitude;
+ 	var url = "http://api.openweathermap.org/data/2.5/weather?lat=" + 35 + "&lon=" + 150;
 
  	var request = createXMLHttpRequest();
  	request.open("GET", url, true);
@@ -34,7 +34,7 @@ var loadWeatherData = function(pos) {
  			var data = request.responseText
  			var WeatherData = JSON.parse(data);
 
- 			document.getElementById("output").innerHTML = WeatherData.weather[0].main + ", " + WeatherData.weather[];
+ 			document.getElementById("output").innerHTML = WeatherData.weather[0].main;
  		}
  	}
  	request.send("");
