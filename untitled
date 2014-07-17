@@ -1,0 +1,170 @@
+var calcCampusPoints = function(campusscore, currentlocdata){
+	if(currentlocdata => 800 && currentlocdata <= 804){
+		var perc = campusscore + 0 + ishiki.value;
+
+		commentGenerator(perc);
+		outputKyukoPerc(perc);
+	}
+	if(currentlocdata = 301){
+		var perc = campusscore + 5 + ishiki.value;
+
+		commentGenerator(perc);
+		outputKyukoPerc(perc);
+	}
+	if(currentlocdata = 311){
+		var perc = campusscore + 5 + ishiki.value;
+
+		commentGenerator(perc);
+		outputKyukoPerc(perc);
+	}
+	if(currentlocdata = 701){
+		var perc = campusscore + 5 + ishiki.value;
+
+		commentGenerator(perc);
+		outputKyukoPerc(perc);
+	}
+	if(currentlocdata = 741){
+		var perc = campusscore + 5 + ishiki.value;
+
+		commentGenerator(perc);
+		outputKyukoPerc(perc);
+	}
+	if(currentlocdata = 501){
+		var perc = campusscore + 5 + ishiki.value;
+
+		commentGenerator(perc);
+		outputKyukoPerc(perc);
+	}
+	if(currentlocdata >= 950 && currentlocdata <= 955){
+		var perc = campusscore + 5 + ishiki.value;
+
+		commentGenerator(perc);
+		outputKyukoPerc(perc);
+	}
+	if(currentlocdata = 200){
+		var perc = campusscore + 10 + ishiki.value;
+
+		commentGenerator(perc);
+		outputKyukoPerc(perc);
+	}
+	if(currentlocdata = 210){
+		var perc = campusscore + 10 + ishiki.value;
+
+		commentGenerator(perc);
+		outputKyukoPerc(perc);
+	}
+	if(currentlocdata = 230){
+		var perc = campusscore + 10 + ishiki.value;
+
+		commentGenerator(perc);
+		outputKyukoPerc(perc);
+	}
+	if(currentlocdata = 201){
+		var perc = campusscore + 15 + ishiki.value;
+
+		commentGenerator(perc);
+		outputKyukoPerc(perc);
+	}
+	if(currentlocdata = 211){
+		var perc = campusscore + 15 + ishiki.value;
+
+		commentGenerator(perc);
+		outputKyukoPerc(perc);
+	}
+	if(currentlocdata = 231){
+		var perc = campusscore + 15 + ishiki.value;
+
+		commentGenerator(perc);
+		outputKyukoPerc(perc);
+	}
+	if(currentlocdata = 302){
+		var perc = campusscore + 15 + ishiki.value;
+
+		commentGenerator(perc);
+		outputKyukoPerc(perc);
+	}
+	if(currentlocdata = 500){
+		var perc = campusscore + 15 + ishiki.value;
+
+		commentGenerator(perc);
+		outputKyukoPerc(perc);
+	}
+	if(currentlocdata = 501){
+		var perc = campusscore + 15 + ishiki.value;
+
+		commentGenerator(perc);
+		outputKyukoPerc(perc);
+	}
+	if(currentlocdata = 520){
+		var perc = campusscore + 15 + ishiki.value;
+
+		commentGenerator(perc);
+		outputKyukoPerc(perc);
+	}
+	if(currentlocdata >=312 &&  currentlocdata <= 321){
+		var perc = campusscore + 20 + ishiki.value;
+
+		commentGenerator(perc);
+		outputKyukoPerc(perc);
+	}	
+	if(currentlocdata >=600 && currentlocdata<= 622){
+		var perc = campusscore + 20 + ishiki.value;
+
+		commentGenerator(perc);
+		outputKyukoPerc(perc);
+	}
+	if(currentlocdata = 202){
+		var perc = campusscore + 20 + ishiki.value;
+
+		commentGenerator(perc);
+		outputKyukoPerc(perc);
+	}
+	if(currentlocdata = 212){
+		var perc = campusscore + 20 + ishiki.value;
+
+		commentGenerator(perc);
+		outputKyukoPerc(perc);
+	}
+	if(currentlocdata = 221){
+		var perc = campusscore + 20 + ishiki.value;
+
+		commentGenerator(perc);
+		outputKyukoPerc(perc);
+	}
+	if(currentlocdata = 232){
+		var perc = campusscore + 20 + ishiki.value;
+
+		commentGenerator(perc);
+		outputKyukoPerc(perc);
+	}
+	if(currentlocdata = 711){
+		var perc = campusscore + 20 + ishiki.value;
+
+		commentGenerator(perc);
+		outputKyukoPerc(perc);
+	}
+	if(currentlocdata = 731){
+		var perc = campusscore + 20 + ishiki.value;
+
+		commentGenerator(perc);
+		outputKyukoPerc(perc);
+	}
+	if(currentlocdata >= 751 && currentlocdata <= 781){
+		var perc = campusscore + 20 + ishiki.value;
+
+		commentGenerator(perc);
+		outputKyukoPerc(perc);
+	}
+	if(currentlocdata >=900 && currentlocdata <= 906){
+		var perc = campusscore + 20 + ishiki.value;
+
+		commentGenerator(perc);
+		outputKyukoPerc(perc);
+	}
+	if(currentlocdata >=956 &&  currentlocdata <= 962){
+		var perc = campusscore + 20 + ishiki.value;
+
+		commentGenerator(perc);
+		outputKyukoPerc(perc);
+	}
+};

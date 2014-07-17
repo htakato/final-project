@@ -1,0 +1,68 @@
+var calcKyuko = function(campusdata, currentlocdata){
+	if(currentlocdata => 800 && currentlocdata <= 804){
+		var perc = campusdata + 0 + ishiki.value;
+
+		commentGenerator(perc);
+		outputKyukoPerc(perc);
+		outputKyukoPerc(perc);
+	}
+	if(currentlocdata = 300 || currentlocdata = 301 || currentlocdata = 311 || currentlocdata = 701 | currentlocdata = 741 || currentlocdata = 501){
+		var perc = campusdata + 5 + ishiki.value;
+
+		commentGenerator(perc);
+		outputKyukoPerc(perc);
+	}
+	if(currentlocdata >= 950 && currentlocdata <= 955){
+		var perc = campusdata + 5 + ishiki.value;
+
+		commentGenerator(perc);
+		outputKyukoPerc(perc);
+	}
+	if(currentlocdata = 200 || currentlocdata = 210 || currentlocdata = 230){
+		var perc = campusdata + 10 + ishiki.value;
+
+		commentGenerator(perc);
+		outputKyukoPerc(perc);
+	}
+	if(currentlocdata = 201 || currentlocdata = 211 || currentlocdata = 231|| currentlocdata = 302 || currentlocdata = 500 || currentlocdata = 501 || currentlocdata = 520){
+		var perc = campusdata + 15 + ishiki.value;
+
+		commentGenerator(perc);
+		outputKyukoPerc(perc);
+	}
+	if(currentlocdata >=312 &&  currentlocdata <= 321){
+		var perc = campusdata + 20 + ishiki.value;
+
+		commentGenerator(perc);
+		outputKyukoPerc(perc);
+	}	
+	if(currentlocdata >=600 && currentlocdata<= 622){
+		var perc = campusdata + 20 + ishiki.value;
+
+		commentGenerator(perc);
+		outputKyukoPerc(perc);
+	}
+	if(currentlocdata = 202 || currentlocdata = 212 || currentlocdata = 221 || currentlocdata = 232 || currentlocdata = 711 || currentlocdata = 731){
+		var perc = campusdata + 20 + ishiki.value;
+
+		commentGenerator(perc);
+		outputKyukoPerc(perc);
+	}
+	if(currentlocdata >= 751 && currentlocdata <= 781){
+		var perc = campusdata + 20 + ishiki.value;
+
+		commentGenerator(perc);
+		outputKyukoPerc(perc);
+	}
+	if(currentlocdata >=900 && currentlocdata <= 906){
+		var perc = campusdata + 0 + ishiki.value;
+
+		commentGenerator(perc);
+		outputKyukoPerc(perc);
+	}
+	if(currentlocdata >=956 &&  currentlocdata <= 962){
+		var perc = campusdata + 0 + ishiki.value;
+
+		commentGenerator();
+	}
+};

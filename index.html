@@ -38,12 +38,10 @@
               <option value="60">とても低い</option>
             </select>
           </form>
-          <a class="button block" onclick="initApp()">GO!</a>
-          <div id="output"></div>
-          <div id="output2"></div>
+          <a class="button block" href="#result" data-transition="fade" onclick="initApp()">GO!</a>
         </div>
       </div>
-      <div id="create" data-title="追加" class="panel">
+      <div id="result" data-title="追加" class="panel">
         <div class="formGroupHead">メモの追加</div>
         <form>
           <div class="input-group">
@@ -53,11 +51,13 @@
             <button type="button" class="button icon add" id="memo-submit">追加</button>
             <button type="button" class="button icon pin" id="memo-location">現在地を取得</button>
           </div>
+          <div id="output"></div>
+          <div id="output2"></div>
         </form>
       </div>
       <div id="navbar">
         <a href="#home" class="icon home">ホーム</a>
-        <a href="#create" class="icon calendar">週間予報</a>
+        <a href="#result" class="icon calendar">週間予報</a>
         <a href="#create" class="icon chat">ツイートする</a>
       </div>
     </div>
