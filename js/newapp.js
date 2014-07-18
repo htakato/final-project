@@ -50,19 +50,19 @@ var CampusSelect = function(currentlocdata){
 		var coordend = "35.388232&lon=139.427780";
 		cloadWeatherData(currentlocdata, coordend);
 	}
-	if(campus = "hiyoshiyagami"){
+	else if(campus = "hiyoshiyagami"){
 		var coordend = "35.388232&lon=139.427780";
 		cloadWeatherData(currentlocdata, coordend);
 	}
-	if(campus = "mita"){
+	else if(campus = "mita"){
 		var coordend = "35.388232&lon=139.427780";
 		cloadWeatherData(currentlocdata, coordend);
 	}
-	if(campus = "shinanomachi"){
+	else if(campus = "shinanomachi"){
 		var coordend = "35.388232&lon=139.427780";
 		cloadWeatherData(currentlocdata, coordend);
 	}
-	if(campus = "shiba"){
+	else if(campus = "shiba"){
 		var coordend = "35.388232&lon=139.427780";
 		cloadWeatherData(currentlocdata, coordend);
 	}
@@ -74,90 +74,90 @@ var calcCampusPoints = function(campusdata, currentlocdata){
 	var camppusdata = campusdata;
 
 	if(campusdata = 800){
-		document.getElementById("output").innerHTML = "やっほーい";
+		calcKyuko(0, currentlocdata);
 	}
-	if(campusdata = 803){
-		document.getElementById("output").innerHTML = "やっほーい";
+	else if(campusdata = 803){
+		calcKyuko(0, currentlocdata);
 	}
-	if(campusdata = 301){
+	else if(campusdata = 301){
 		calcKyuko(5, currentlocdata);
 	}
-	if(campusdata = 311){
+	else if(campusdata = 311){
 		calcKyuko(5, currentlocdata);
 	}
-	if(campusdata = 701){
+	else if(campusdata = 701){
 		calcKyuko(5, currentlocdata);
 	}
-	if(campusdata = 741){
+	else if(campusdata = 741){
 		calcKyuko(5, currentlocdata);
 	}
-	if(campusdata = 501){
+	else if(campusdata = 501){
 		calcKyuko(5, currentlocdata);
 	}
-	if(campusdata >= 950 && campusdata <= 955){
+	else if(campusdata >= 950 && campusdata <= 955){
 		calcKyuko(5, currentlocdata);
 	}
-	if(campusdata = 200){
+	else if(campusdata = 200){
 		calcKyuko(10, currentlocdata);
 	}
-	if(campusdata = 210){
+	else if(campusdata = 210){
 		calcKyuko(10, currentlocdata);
 	}
-	if(campusdata = 230){
+	else if(campusdata = 230){
 		calcKyuko(10, currentlocdata);
 	}
-	if(campusdata = 201){
+	else if(campusdata = 201){
 		calcKyuko(15, currentlocdata);
 	}
-	if(campusdata = 211){
+	else if(campusdata = 211){
 		calcKyuko(15, currentlocdata);
 	}
-	if(campusdata = 231){
+	else if(campusdata = 231){
 		calcKyuko(15, currentlocdata);
 	}
-	if(campusdata = 302){
+	else if(campusdata = 302){
 		calcKyuko(15, currentlocdata);
 	}
-	if(campusdata = 500){
+	else if(campusdata = 500){
 		calcKyuko(15, currentlocdata);
 	}
-	if(campusdata = 501){
+	else if(campusdata = 501){
 		calcKyuko(15, currentlocdata);
 	}
-	if(campusdata = 520){
+	else if(campusdata = 520){
 		calcKyuko(15, currentlocdata);
 	}
-	if(campusdata >=312 &&  campusdata <= 321){
+	else if(campusdata >=312 &&  campusdata <= 321){
 		calcKyuko(20, currentlocdata);
 	}	
-	if(campusdata >=600 && campusdata<= 622){
+	else if(campusdata >=600 && campusdata<= 622){
 		calcKyuko(20, currentlocdata);
 	}
-	if(campusdata = 202){
+	else if(campusdata = 202){
 		calcKyuko(20, currentlocdata);
 	}
-	if(campusdata = 212){
+	else if(campusdata = 212){
 		calcKyuko(20, currentlocdata);
 	}
-	if(campusdata = 221){
+	else if(campusdata = 221){
 		calcKyuko(20, currentlocdata);
 	}
-	if(campusdata = 232){
+	else if(campusdata = 232){
 		calcKyuko(20, currentlocdata);
 	}
-	if(campusdata = 711){
+	else if(campusdata = 711){
 		calcKyuko(20, currentlocdata);
 	}
-	if(campusdata = 731){
+	else if(campusdata = 731){
 		calcKyuko(20, currentlocdata);
 	}
-	if(campusdata >= 751 && campusdata <= 781){
+	else if(campusdata >= 751 && campusdata <= 781){
 		calcKyuko(20, currentlocdata);
 	}
-	if(campusdata >=900 && campusdata <= 906){
+	else if(campusdata >=900 && campusdata <= 906){
 		calcKyuko(20, currentlocdata);
 	}
-	if(campusdata >=956 &&  campusdata <= 962){
+	else if(campusdata >=956 &&  campusdata <= 962){
 		calcKyuko(20, currentlocdata);
 	}
 };
@@ -166,13 +166,7 @@ var calcKyuko = function(campusscore, currentlocdata){
 	var campusscore = campusscore;
 	var currentlocdata = currentlocdata;
 
-	if(currentlocdata = "800"){
-		var perc = campusscore + 0 + ishiki;
-
-		commentGenerator(perc);
-		outputKyukoPerc(perc);
-	}
-	else if(currentlocdata = "803"){
+	if(currentlocdata >= "800" && currentlocdata <= 805){
 		var perc = campusscore + 0 + ishiki;
 
 		commentGenerator(perc);
@@ -351,6 +345,7 @@ var outputKyukoPerc = function(perc){
 var commentGenerator = function(perc){
 	if(perc >= 0 && perc < 10){
 		document.getElementById("output2").innerHTML = "0%の域";
+		document.getElementById("picture").style.backgroundImage = "url('0.jpg')";
 	}
 	else if(perc >= 10 && perc < 30){
 		document.getElementById("output2").innerHTML = "20%の域";
@@ -370,7 +365,7 @@ var commentGenerator = function(perc){
 	else{
 		document.getElementById("output2").innerHTML = "なんかおかしいよ";
 	}
-}
+};
 
 
 //キャンパスの天気
@@ -386,11 +381,8 @@ var cloadWeatherData = function(currentlocdata, coordend) {
  			var WeatherData = JSON.parse(data);
 
  			//document.getElementById("output").innerHTML = WeatherData.weather[0].id + " " + currentlocdata;
- 	if(WeatherData.weather[0].id = 800){
+ 	if(WeatherData.weather[0].id >= 800 && WeatherData.weather[0].id <= 805){
 		calcKyuko(0, currentlocdata);
-	}
-	else if(WeatherData.weather[0].id = 803){
-		document.getElementById("output").innerHTML = "やっほーい";
 	}
 	else if(WeatherData.weather[0].id = 301){
 		calcKyuko(5, currentlocdata);
